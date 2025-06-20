@@ -1,0 +1,218 @@
+---
+title: "Paper Airplanes Full Factorial Experiment"
+author: Alex Qiu
+output: pdf_document
+date: "2025-03-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+The ability of an object to glide through the air efficiently depends on multiple factors, including weight distribution, shape, and structural modifications. Having a comprehensive review of the features become particularly useful in crafting optimal aircrafts and other aerodynamic structures, which can have beneficial implications towards achieving major engineering progress. In the context of paper airplanes, these factors can significantly influence flight stability and distance. This study focuses on the construction and orientation of paper airplanes, particularly how design modifications—-such as the strategic placement of paper clips to simulate weight—-impact flight performance. While this experiment is conducted in an educational setting, its implications extend beyond classroom exercises. The principles observed in paper airplane aerodynamics can contribute to broader discussions on flight efficiency, structural balance, and real-world aircraft design.
+
+In the context of airplanes, we are conducting a factorial experimental design, which is widely used to assess the impact of multiple independent variables on a single dependent outcome. For this study, a full factorial design is employed to analyze how the placement of paper clips affects the flight distance of a paper airplane. Specifically, we have three independent factors that are considered, which include the presence or absence of a paper clip on the nose, middle, and rear of the plane. Each factor has two levels of the presence of a paper clip on the plane denoted with "yes" or "1" or the absence of a paper clip on th plane denoted with "no" or "0". In the end, our result is a $2^3=8$ factorial design with eight unique treatment combinations. This approach allows for the investigation of both individual and interactive effects of weight distribution on flight performance.
+
+When we consider past studies on airplane aerodynamics, conclusions have demonstrated that weight distribution plays a critical role in stability, takeoff, and distance. For example, adding mass to the nose often enhances stability by shifting the center of gravity forward, potentially reducing lift but increasing directional control. Conversely, placing weight at the rear may lead to erratic flight patterns due to increased instability. The weight placement can be attributed to the lift of the airplane, and becomes an important component in takeoff and in-air travel length (Federal Aviation Administration). Additionally, it has also been determined that for some smaller airplanes, the center of gravity plays a drastic role in flight distance and fuel. Shifting bags or moving passengers to other seats, or just redistributing the center of gravity can allow the airplane to burn fuel over longer periods of flights (California Aeronautical University). However, the combined effects of multiple weight placements remain an area of interest, particularly in the experimental context and in the classroom setting. Understanding these interactions can contribute to a broader comprehension of flight mechanics and may have implications beyond paper airplanes, such as in the design of gliders.
+
+Overall, our primary objective of this study is to determine the optimal weight distribution for maximizing flight distance by analyzing the effects of different paper clip placements through a factorial design. According to what was discovered through the sources, we hypothesize that having no weight (paper clip) on the plane will result in the greatest flight distance, but By assessing both main effects and interaction effects, this research aims to provide insights into how structural modifications influence aerodynamics. The results of this study could inform both scientific inquiry and practical applications, offering valuable data for educational demonstrations, engineering principles, and further aerodynamics research.
+
+
+# Methods
+The aim of this lab was to determine whether or not the position of a paperclip, stationed at the nose, middle, or rear of the paper plane would have a significant effect on the plane's travel distance. In other words, we are measuring if putting a paperclip on various locations on the paper airplane impact how far it will travel.For this particular experiment, we conducted a full factorial experiment with three factors and 2 levels for each of the factors denoted as a 1 for yes and a 0 for no presence of a paperclip on the nose, middle, or rear. This design resulted in unique factor combinations--8. These factors were chosen based on their potential impact on the flight distance of a paper airplane, particularly in how they influence the center of gravity and how well they may impact the plane to travel in air.
+
+In order to collect the data, we created a benchmark starting position and launched the plane with the same relative force in a hallway: Girvetz hall in UCSB. I had a designated thrower (me) who  threw all of the trials with the same relative force and tactic, where I had given the airplane a simple toss without throwing it like a football for comparison. I had assigned each trial randomly under the amount of replicates which was 3 for each combination of factors which was nose, middle, and rear for a total of 24 trials, that also had random order. For th significance tests, the trial sample size at 24 would help us reach at least 80% power, so after determining the size, it was then easy to complete each flight. Wherever the plane landed, I would use the Iphone's measuring app to track the distance from the benchmark line to the end location of the plane. After each toss, I would reset the paper airplane to be in a condition that reflects something that we have started with (a plane in good condition without dents or creases due to crashes/dents etc). This would give me varying results with the different paperclip positions, but I kept track of each distance with my measuring app each time and replicated each combination three times according to my sample size calculation. 
+
+In terms of the photographic documentation, taking a picture/screenshot of every single one of the 24 trials seemed unreasonable, so instead, I will share images of the paperclip position before launch, and the hallway. Below my feet and hands is a line shaped by the structure of the tiles in Girvetz hall that serves as the benchmark starting launch position.
+
+```{r, fig.show="hold", out.width="50%"}
+knitr::include_graphics(c(
+  "~/Downloads/IMG_7254.JPG",
+  "~/Downloads/IMG_7255.JPG",
+  "~/Downloads/IMG_7256.JPG",
+  "~/Downloads/IMG_7257.JPG",
+  "~/Downloads/IMG_7258.JPG",
+  "~/Downloads/IMG_7259.JPG",
+  "~/Downloads/IMG_7261.JPG",
+  "~/Downloads/IMG_7262.JPG"
+))
+```
+
+Statistical methods I have used include the use of multiple linear regression model where the distance traveled by the airplane is modeled as a function of the position of the paperclip (nose, middle, rear) and their interactions. Additionally, in order to correctly utilize the values posed by the model, linearity, independence, normality of errors, and homoscedacity had to be met.
+My linear regression model is shown by:$\text{Distance} = \beta_0 + \beta_1 (\text{Nose}) + \beta_2 (\text{Middle}) + \beta_3 (\text{Rear}) + \beta_4 (\text{Nose} \times \text{Middle}) + \beta_5 (\text{Nose} \times \text{Rear}) + \beta_6 (\text{Middle} \times \text{Rear}) + \beta_7 (\text{Nose} \times \text{Middle} \times \text{Rear}) + \epsilon$
+
+For linearity between independent variables of the paperclip position and the dependent variable of flight distance, I applied the residuals vs. fitted values plot. Additionally, this plot helps identify if the residuals are spread evenly around zero, suggesting homoscedasticity. For the test of normality, I have utilized the QQplot and shapiro wilk test to assess whether residuals follow the straight line or not. By verifying that these assumptions are met, I ensured the reliability of the linear regression model in identifying significant relationships between the paperclip positions and flight distances.
+
+As far as assumptions go, we would assume linearity, normality, and independence of errors, homogeneity of variances for this statistical test. 
+
+Some technical issues that may have become an issue would be the airplane being dented at the tip every time it landed. The plane also could have been altered with when adjusting it to fit the new paperclip on new areas. Or, an issue could have been that I had no knowledge on how to properly throw a good plane, which could have introduced some inconsistencies in acquiring the data. Additionally, the wear and tear of tossing the plane multiple times could have interfered with the stability of the plane and created dents in the nose to affect the durability of the paper plane. I made sure to re-bend the nose of the paper, but I had additionally crafted 3 extra paper planes so that the integrity of the plane was consistent across the trials. Then, since there was unsuitable weather conditions (rain) to complete the trials in an unconstrained atmosphere, I had to adjust by entering indoor scenes to complete the data collection. Even though there was no puddles abnd the hallway was dry, the constrictive nature of the hall caused the plane to hit the sides of the walls, cutting the distance flown short and ultimately hurting the data. 
+
+# Results
+```{r}
+library(readxl)
+library(knitr)
+plane_df = read_excel("/Users/alexqiu/Downloads/pstat122/plane_data.xlsx")
+
+plane_df$nose <- as.factor(plane_df$nose)
+plane_df$middle <- as.factor(plane_df$middle)
+plane_df$rear <- as.factor(plane_df$rear)
+
+kable(plane_df)
+```
+
+```{r}
+full_lm = lm(distance ~ nose + middle + rear + nose*middle + nose*rear + 
+               middle*rear + nose*middle*rear, data = plane_df)
+kable(summary(full_lm)$coefficients)
+```
+Here, we show a sample size calculation with a graph. 
+```{r}
+#first to calculate enough power
+source("power_factorial_23.R")
+beta_mean <- c(23.4, 9.5, 9.8, -9.34, -12.3, -2.9, -8.2, 14.733)
+beta_se <- c(2.592, 3.665, 3.665, 3.665, 5.183, 5.183, 5.183, 7.33)
+replicates <- 3
+power <- power_factorial_23(beta_mean, beta_se, replicates)
+kable(power, caption = "power")
+
+#second to show graph
+library(ggplot2)
+library(dplyr)
+
+beta_se_values <- c(2, 3, 4, 5)
+replicates <- seq(2, 10, by=1)
+beta_mean <- c(23.4, 9.467, 9.767, -9.367, -12.3, -2.9, -8.2, 14.733)
+
+data1 <- data.frame(replicates = numeric(0), beta_se = numeric(0), power = numeric(0))
+
+for (se in beta_se_values) {
+  for (rep in replicates) {
+    power_val <- power_factorial_23(beta_mean, rep(se, 8), rep)  # Compute power
+    data1 <- rbind(data1, data.frame(replicates = rep, beta_se = se, power = power_val))
+  }
+}
+
+data1$beta_se <- as.factor(data1$beta_se)
+#plot
+ggplot(data1, aes(x = replicates, y = power, color = beta_se, group = beta_se)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Power Analysis for Different Standard Errors",
+       x = "Number of Replicates",
+       y = "Power",
+       color = "Beta SE") +
+  theme_minimal()
+
+```
+
+Here is a graphical plot of our data
+```{r, fig.show="hold", out.width="50%"}
+#analyze all three factors together
+#for jitter
+ggplot(data = plane_df, mapping = aes(x = factor(replicate), y = distance,
+                                      color = factor(nose))) + 
+  geom_jitter(width = 0.1, height = 0) +
+  facet_grid(middle ~ rear, 
+             labeller = labeller(middle = c("0" = "no middle clip", "1" = "middle clip"),
+                                 rear = c("0" = "no rear clip", "1" = "rear clip"))) +
+  scale_color_discrete(name = "Nose Clip", labels = c("No", "Yes")) +
+  xlab("replicate") + 
+  ylab("distance") +
+  ggtitle("distance based on three factors jitter facetplot")
+
+#for box
+ggplot(data = plane_df, mapping = aes(x = factor(nose), y = distance, 
+                                      fill = factor(nose))) + 
+  geom_boxplot(alpha = 0.7, width = 0.5) + 
+  facet_grid(middle ~ rear, 
+             labeller = labeller(middle = c("0" = "no middle clip", "1" = "middle clip"),
+                                 rear = c("0" = "no rear clip", "1" = "rear clip"))) +
+  scale_fill_discrete(name = "Nose Clip", labels = c("No", "Yes")) +
+  xlab("nose presence") + 
+  ylab("distance") +
+  ggtitle("distance based on three factors box facetplot")
+
+###ALL SIGNIFICNT PLOTS
+# nose boxplot
+boxplot(distance ~ nose, data = plane_df, 
+        main = "boxplot of distance by nose",
+        xlab = "nose", ylab = "distance", 
+        col = c("blue", "green"), 
+        names = c("0", "1"))
+
+#boxplot for middle
+boxplot(distance ~ middle, data = plane_df, 
+        main = "boxplot of distance by middle",
+        xlab = "middle", ylab = "dstance", 
+        col = c("blue", "green"), 
+        names = c("0", "1"))
+
+#bioxplot for rear
+boxplot(distance ~ rear, data = plane_df, 
+        main = "boxplot of distance by rear",
+        xlab = "rear", ylab = "distance", 
+        col = c("blue", "green"), 
+        names = c("0", "1"))
+
+#nose:middle interaction
+boxplot(distance ~ nose * middle, data = plane_df, 
+        main = "Boxplot of Distance- nose and middle ",
+        xlab = "nose and middle interaction", ylab = "Distance", 
+        col = c("blue", "green", "red", "yellow"), 
+        names = c("0:0", "0:1", "1:0", "1:1"))
+```
+
+As we examine the facet grid plot, we can see that having no clip on the rear and a yes for the nose clip and no clip on the middle seem to produce higher results of distance traveled with the dots appearing above 20 and reaching around 30+ feet in distance. Same with the bottom left plot denoted as yes for a clip in the middle and no nose clip, and no rear clip, the quadrant seems to produce a similar result, where the distance  appears to be larger than the other combinations across all three replicates. We are able to seem from this plot, that the influence of the nose clip being on the plane combined with a paperclip on the middle seem to produce greater distances which is supported by the p values of the coefficients when we ran the lm model. We will discuss the implications of these individual and combined p values later in the next section, but the graph seems to be consistent with our findings so far. As well as the facetplot showing the jittered points, we have adjusted the facetplot to show the boxplots of the nose clip presence on the distance and their respective combinations. We are able to see the distributiuon of the mean and median and some outliers of the combinations which tell us that generally, for the nose clip, we see greater distances traveled than the trials where there was no nose clip as shown with the blue boxes appearing slightly above the red box. This could support our hypothesis and initial belief that the plane would travel further without the extra weight on it. 
+
+Additionally, for the significant coefficients, we have constructed boxplots, in which we can succesfully view the distriubution and medians of the lengths travled according to each individual factor of nose, middle, and rear. For each of the plots, we can see that the distance means and boxes are greater when there is a presence of either the paperclip on the nose, middle, or rear, which were also the significant terms in the linear model. 
+
+For example, in our boxplot of distance by the coefficient of nose, we see that without the nose, the distance traveled seemed to be lower, and that when there was a clip on the nose, the distribution of the mean and median as shown with the green box, portrays the distance being slightly larger than when there was no clip. Across all of the coefficients of nose, middle, rear, and nose:middle--the ones that were significant with their p values, the difference in the boxes in each plots could demonstrate that there was significance that had an impact on distance. 
+
+For normality assumptions, we use the QQplot, residuals vs. fitted values, shapiro test, and a historgram for normality. 
+```{r, fig.show="hold", out.width="50%" }
+residuals_full <- residuals(full_lm)
+fitted_values <- fitted(full_lm)
+
+#Histogram
+hist(residuals_full, main = "Histogram of Residuals", xlab = "residuals")
+lines(density(residuals_full), col = "red", lwd = 2)
+
+#qq plot
+qqnorm(residuals_full, main = "qq plot of residuals")
+qqline(residuals_full, col = "red", lwd = 2)
+
+# shpairo test
+shapiro_test <- shapiro.test(residuals_full)
+shapiro_df <- data.frame(Statistic = shapiro_test$statistic, P_Value = shapiro_test$p.value)
+kable(shapiro_df, col.names = c("W", "P-Value"))
+
+#residuals v fitted plot
+plot(fitted_values, residuals_full, main = "residuals vs. fitted values", xlab = "fitted values", ylab = "residuals", pch = 19)
+abline(h = 0, col = "red", lwd = 2)
+
+```
+
+When we take a look at each of these plots, we see that our data is supported by the assumptions of normality. For our histogram, it is approximately bell-shaped, suggesting that residuals may be normally distributed. For our qqplot, the points fall roughly along the 45-degree reference line, indicating that the residuals are approximately normal. For our shapiro test, we fail to reject the null hypoithesis since our p value is greater than .05, suggesting normality cannot be ruled out. For our residuals vs fitted values plot, a random scatter of residuals around zero with no clear pattern suggests that the model assumptions are satisfied.
+
+# Discussion
+To give a recap of the study, we examined the effects of having different weight distributions on paper airplanes. By adjusting the weight of the nose, the middle, and the rear of the paper airplane with paper clip positioning, a full factorial design was employed to analyze the significant effects of individual factors and their interactions. Overall, on a broader scale, we find that there was some significant evidence that would show how the combination of different paperclip placements has an effect on the travel distance. We constructed a statistical linear model with distance as our outcome of interest, and from our results, we obtain p values for the individual significance (nose, middle, rear). As a result, the data that we have obtained likely shows that for some combinations and some individual factors, the distance is positively impacted by them. Similar to our experiment, we found that the weight distribution does have an effect on the distance, which is fortified by the fact that "a well-balanced plane will have its center of gravity near the middle of the wings. If the CG is too far forward, the plane will nose dive; if it’s too far back, the plane may stall or flip" (Learning Corner) and this has been supported by our data that we have also obtained. 
+
+In the data analysis, we discovered that there was a significance of the paperclip position on the distance of the plane. For example, for the significant factors, we have p values of 0.02, 0.017, 0.0212, 0.0305 for nose, middle, rear, nose:middle respectively. However, for the nose:rear, middle:rear, and nose:middle:rear interactions, we do not quite see p values that are significant or lower than the 0.05 level. This suggests that the combination of the different factors for our particular data and experiment may only suggest that the p value of 0.5836 (nose:rear), 0.1332 (middle:rear), and 0.0616 (nose:middle:rear) do not contribute drastically to the distance traveled by the airplane. Additionally, from outside sources, we find out that "if the weight was displaced too far toward, the flier dived and crashed" (Aerospace Manufacturing and Design) which can serve as further support to our experiment claim that the weight distribution had an effect on distance.
+
+For the experiment, we have provided some tests to assert normality of the residuals. We see that from the QQplot, residuals vs fitted plot, Shapiro test, and histogram, that all of these assumptions hold. Also, the observations are independent because each person who throes the plane is different u under similar conditions without interference. We also might assume that the variances of the distances should be relatively similar according to which treatment was imposed.
+
+In general however, the findings of the results, where we saw the most influence of the nose factor with the level of yes and the middle, with the factor of yes, the nose:middle with the level of yes, and the rear factor with level yes, have contributed to the largest statistically significant evidence for flight distance traveled. According to the literature findings and our initial claims that the less weight and the lighter the center of gravity was on the plane, that the distance would be larger. Then we found out from our linear model, that this was indeed true. If we had kept on all three paperclips, or even had two paperclips on at one time, that the effect on distance would create a scenario where the distance would be a negative coefficient especially for the nose:middle factor. Particularly, the factors that contributed mostly to the increased distance, with a positive coefficient was nose and middle, which also makes sense since there was less weight and the center gravity was more balanced in a way that would enable the plane to fly further.
+
+# References
+Federal Aviation Administration. Pilot's Handbook of Aeronautical Knowledge: Chapter 5 - Aerodynamics of Flight. Federal Aviation Administration. [Accessed March 17, 2025]. Available from: https://www.faa.gov/sites/faa.gov/files/07_phak_ch5_0.pdf.
+(Federal aviation Adminstration)
+
+Learning Corner. Understanding paper airplane design and weight distribution for ages 10 and up. Learning Corner. [Accessed March 17, 2025]. Available from: https://learningcorner.co/explain-anything/6372.
+(Learning Corner)
+
+California Aeronautical University. Aircraft weight and balance affect flight. California Aeronautical University. [Accessed March 17, 2025]. Available from: https://calaero.edu/aeronautics/weight-balance/aircraft-weight-and-balance-affect-flight/
+(California Aeronautical University)
+
+Aerospace Manufacturing and Design. Paper airplanes give aerodynamic insights. Aerospace Manufacturing and Design. [Accessed March 17, 2025]. Available from: https://www.aerospacemanufacturinganddesign.com/article/paper-airplanes-give-aerodynamic-insights/
+(Aerospace Manufacturing and Design)
