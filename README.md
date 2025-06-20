@@ -76,7 +76,7 @@ The linear model analysis revealed how different clip placements affected flight
 - **QQ plot & histogram**: confirmed bell-shaped distribution  
 
 # View the Full Report  
--
+- paperairplaneproj.pdf
 
 ## Project Structure  
 paperairplaneproj/
