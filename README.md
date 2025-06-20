@@ -79,7 +79,7 @@ The linear model analysis revealed how different clip placements affected flight
 - 📄 *Report in progress* — see compiled results and codebase in associated R project
 
 ## Project Structure  
-PaperAirplane_Factorial/
+paperairplaneproj/
 ├── Data/ # Raw dataset from 24 trials
 │ └── plane_data.xlsx
 │
@@ -115,10 +115,10 @@ install.packages(c(
 ## How to Run
 1. Clone the repository:
 ```
-git clone https://github.com/aidanpmitchell/PaperAirplane_Factorial.git
-cd PaperAirplane_Factorial
+git clone https://github.com/alexqiuu/paperairplaneproj.git
+cd paperairplaneproj
 ```
-2. Open **Soda_Factorial.Rmd** in RStudio
+2. Open **paperairplaneproj.Rmd** in RStudio
 3. Install required dependencies
 4. Run the analysis by knitting the R Markdown file to a pdf
 
