@@ -79,6 +79,7 @@ The linear model analysis revealed how different clip placements affected flight
 - [paperairplaneproj.pdf](https://github.com/alexqiuu/Airplane_Factorial/blob/main/paperairplaneproj.pdf)
 
 ## Project Structure  
+```
 paperairplaneproj/
 ├── Data/ # Raw dataset from 24 trials
 │ └── plane_data.xlsx
@@ -93,7 +94,7 @@ paperairplaneproj/
 ├── paperairplaneproj.pdf # PDF output of the report
 ├── .gitignore # Ignore list for Git
 └── README.md # Overview of project and analysis steps
-
+```
 ## Dependencies  
 
 This project was developed in R. Install the following packages to reproduce the results:
