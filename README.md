@@ -76,7 +76,7 @@ The linear model analysis revealed how different clip placements affected flight
 - **QQ plot & histogram**: confirmed bell-shaped distribution  
 
 # View the Full Report  
-- paperairplaneproj.pdf
+- [paperairplaneproj.pdf](https://github.com/alexqiuu/Airplane_Factorial/blob/main/paperairplaneproj.pdf)
 
 ## Project Structure  
 paperairplaneproj/
@@ -110,3 +110,17 @@ install.packages(c(
   "tidyr",         # Data reshaping
   "broom"          # For tidying model outputs
 ))
+```
+### How to Run
+1. Clone the repository:
+```
+git clone https://github.com/alexqiuu/Airplane_Factorial.git
+
+cd Airplane_Factorial
+```
+2. Open paperairplaneproj.Rmd in RStudio
+
+3. Install the required dependencies
+
+4. Knit to PDF or HTML to generate the final report
+
